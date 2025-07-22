@@ -1,0 +1,20 @@
+{
+  "name": "myrodixia",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/luthfihrmwn/Myrodixia#readme",
+  "bugs": {
+    "url": "https://github.com/luthfihrmwn/Myrodixia/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luthfihrmwn/Myrodixia.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
