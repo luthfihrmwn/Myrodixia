@@ -8,6 +8,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+
     steps:
       - name: Checkout source code
         uses: actions/checkout@v3
@@ -21,9 +26,18 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
+      - name: Login to GHCR
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Build and Push Docker image
         uses: docker/build-push-action@v5
         with:
           context: .
           push: true
-          tags: luthfihrmwn26/myrodixia:latest
+          tags: |
+            luthfihrmwn26/myrodixia:latest
+            ghcr.io/${{ github.repository_owner }}/myrodixia:latest
